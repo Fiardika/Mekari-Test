@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  namespace: node
+  labels:
+    app: nodejs-fiar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-fiar
+  template:
+    metadata:
+      labels:
+        app: nodejs-fiar
+    spec:
+      containers:
+        - env:
+            - name: NODE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: port
+                  name: nodejs-configmap
+          name: mekari-node
+          image: fiardika/mekari-node:latest
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
+status: {}
