@@ -1,5 +1,5 @@
 # Web App
-I use NodeJS to make a simple app with 2 endpoints (api/health-check and api/hello)
+I'm using NodeJS to make a simple app with 2 endpoints (api/health-check and api/hello)
 How to use:
 1. Clone this repository
 2. Run 'node server.js'
